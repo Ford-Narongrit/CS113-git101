@@ -1,0 +1,21 @@
+Git Branch Merge Conflict
+
+คำสั่งสร้าง Branch  ->  git branch <branch-name>
+ตรวจสอบ Branch  ->  git branch
+//การสร้าง Branch ที่แยกออกจาก Branch เดิม (Branch หลักของ repository คือ master) เป็นการแยกส่วนการพัฒนาออกจากกัน ไม่ให้ปนกัน เพื่อคงสภาพ Checkpoint ที่เป็นส่วนใหญ่
+
+การเปลี่ยน Branch -> git Checkout <branch-name>
+
+เมื่อสร้าง Branch แยกกันแล้ว ไฟล์งานจะแยกออกจากกัน เป็นแผนภาพต้นไม้
+จะทำงานแยกส่วนกัน เหมือนคนละ folder
+ใช้ git log --all --decorate --oneline --graph  เช็คดู
+
+การ push ไฟล์ไปยัง branch ต้องพิมพ์ชื่อให้ตรงกับ branchที่อยู่ปัจจุบัน git push <ชื่อ remote> <ชื่อ branch>
+
+
+การ merge จะเป็นการรวม ไฟล์จาก branch ที่ต้องการไปอยู่ใน branch ปัจจุบัน  -> git merge <ชื่อ branch>
+
+การ pull เป็นการดึงการเปลี่ยนแปลงจาก branch <ชื่อ branch> -> git pull <ชื่อ remote> <ชื่อ branch>
+
+กรณีที่เกิดการ Conflict(คือการที่มีไฟล์ชื่อเดียวกันถูก แก้ไข หรือสร้าง แล้วไม่เหมือนกันแล้วทับกันตอนไป pull หรือ merge)
+แก้ไขโดยการไปแก้ไขไฟล์ว่าจะใช้อันไหน แล้ว save add commit แล้วเช็ค
