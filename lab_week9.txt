@@ -1,0 +1,73 @@
+Character Pointer
+char* colorPtr = "blue";
+printf("%c\n", colorPtr[1]); ->l
+printf("%c\n", *(colorPtr + 1)); -> l
+printf("%c\n", *colorPtr + 1);  -> C
+printf("%s\n", colorPtr); ->blue
+ถ้าเป็น charPtr เก็บ blue เปลี้ยนค่าไม่ได้
+ถา้ใช้ charPtr ->array เปลี่ยนค่าได้
+
+
+char* colorPtr = "blueocean";
+printf("%d\n", sizeof colorPtr);  -> มีขนาด 8 bit (ขนาดPointer)
+ 
+Array of String
+
+char* numbers[] = {"one", "two", "three"};
+printf("%s\n", numbers[2]);  ->two
+printf("%c\n", numbers[2][1]); ->h
+printf("%s\n", *(numbers + 2)); ->three
+printf("%c\n", (*(numbers + 2))[1]); -> t
+printf("%c\n", *(numbers + 2)[1]); -> ได้ค่าแปลกๆ
+ การกำหนดค่า
+ scanf("%19s", color); ตัวสุดท้ายจะเป็น /0  ไม่ต้องเขียน19 ก็ได้ แต่จะเก็บขนาดเกินแต่อยากจะไปกระทบตัวแปรอื่น
+ ขอจำกัดของscanf คือรับ " " ไม่ได้ เพราะ จะหยุดรับเมื่อเจอ
+
+Character Library
+#include <ctype.h>
+    ตรวจสอบตัวเลข    isdigit() -> return True/fulse
+    ตรวจสอบอักษร     isalpha() -> return True/fulse
+            ตัวใหญ่     isupper()
+            ตัวเล็ก      islower() 
+        แปลง  tolower() เปลี่่ยนเป็น ตัวเล็ก
+        แปลง  toupper()  เปลี่่ยนเป็น ตัวเล็ก
+    ตรวจสอบตัวเลข & อักษร  isalnum()    -> return True/fulse
+    ตรวจสอบตัวเลขฐาน 16   isxdigit() ->return True/fulse
+    ตรวจสอบ white space        isspace('\n')
+    ตรวจสอบ control character  iscntrl('\n')
+
+
+#include <string.h>
+strcpy(y, x) copy xไปให้ y
+strncpy(y,x,n) copy xไปให้ y โดยถึงตำแหน่ง n
+strcat(x,y) ต่อ x,y เข้าด้วยกัน
+strncat(x,y,n) ต่อ x,y เชื่อม ถึงตัวที่ n
+strcmp(x,y)  เช็คพจน.
+strchr(x,y) หาตัวอักษร y ใน x
+strrchr(x,y)  หาตัวอักษร y ใน x จากหน้าไปหลัง
+strstr(x,y)   หาประโยค y ใน x 
+strlen(x)      หาความยาว x
+
+//ประกาศรูปแบบของ struct ขึ้นมาก่อน
+struct student{
+    char name[100];
+    char id[11];
+    
+};
+typedef double kg; //เป็นการสร้าง datatypeขึ้้มาใหม่
+int main(){
+// นำ struct มาใช้ โดการประกาศ struct
+ struct student A,B;
+ struct student students[10];
+ struct student* sp;
+ kg wight = 10.44;  // หมายถึง double wight
+
+//ตัวอย่าง การกำหนดค่า
+    strcpy(student1.firstname, "Peter");
+    strcpy(student1.lastname, "Parker");
+    strcpy(student1.id, "5910400017");
+    student1.score = 85.6;
+}
+
+ถ้ารับด้วย/ประกาศด้วย Pointer ใช้ ->    pass by reference
+ถ้ารับด้วย/ประกาศด้วย ตัวแปรปกติ ใช้ .    pass by value
